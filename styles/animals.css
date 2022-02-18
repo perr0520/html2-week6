@@ -27,6 +27,15 @@
 	q:before,q:after{content:'';content:none;}
 	table{border-collapse:collapse;border-spacing:0;}
 
+/**************************************************************************************
+			Custom Properties
+**************************************************************************************/
+
+/* custom properties defined in root can be used across your entire site, over and over again this property has a global scope - it can be used across the entire page */
+
+:root {
+	--highlight-orange: #ff6a00;
+}
 
 /**************************************************************************************
 			Fonts
@@ -161,7 +170,8 @@ $= means "ends with"
 */
 
 a[href*=".org"] {color: red;}
-a[href*=".org"]:hover {color: greenyellow;}
+/* this uses the custom property defined above in :root (var stands for variable) */
+a[href*=".org"]:hover {color: var(--highlight-orange); }
 
 a[href$=".com"] {color:aquamarine;}
 
