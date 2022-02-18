@@ -115,3 +115,52 @@ footer{
 			Special (added in class)
 **************************************************************************************/
 
+/* using the child (>) selector, we style only the divs that are the direct children of the main */
+
+main > div{
+	width: 900px;
+	padding: 5px 0;
+	clear: both;
+}
+
+/* using the descendant selector (space) to select the div inside the divs inside the main */
+main div div {
+	width: 350px;
+	height: 400px;
+	padding: 23px;
+	background-color: #fff;
+	border: 1px solid #AAA;
+	position: relative; /*for holding the before bits (making tape) */
+	z-index: 7;
+	/* in box shadow the properties are:
+	x offset
+	y offset
+	length
+	colour */
+	box-shadow: 2px 2px 4px rgb(50,50,50);
+}
+
+/* with nth-child (and nth-of-type), you can use a calculation to target multiple elemnts 2n would be every second
+	2 would be only the second
+	2n would be very second
+	2n - 1 would be every second starting with the first
+	2n + 1 would be evry second starting with the third 
+	there is also nth-last-child and nth-last-of-type which start counting form the bottom */
+main div:nth-child(2n) div{
+	float: right;
+	/* margin usually pushes other elements away but the negative margin pulls other elements towards - so things look like they are overlapping */
+	margin-top: -100px;
+	margin-bottom: -100px;
+}
+
+/* use an attribute selector to style a link based on its top level domain 
+$= means "ends with"
+*= means "Contains"
+^= means "begins with"
+= means "matches exactly"
+*/
+
+a[href*=".org"] {color: red;}
+a[href*=".org"]:hover {color: greenyellow;}
+
+a[href$=".com"] {color:aquamarine;}
